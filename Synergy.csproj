@@ -1,0 +1,575 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <TypeScriptCompileBlocked>true</TypeScriptCompileBlocked>
+    <TypeScriptToolsVersion>Latest</TypeScriptToolsVersion>
+    <IsPackable>false</IsPackable>
+    <SpaRoot>ClientApp\</SpaRoot>
+    <DefaultItemExcludes>$(DefaultItemExcludes);$(SpaRoot)node_modules\**</DefaultItemExcludes>
+    <UserSecretsId>c215dcdf-4c94-4af4-86cb-a9f5a6e2e1f8</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="9.0.0" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="7.0.0" />
+    <PackageReference Include="CsvHelper" Version="12.1.2" />
+    <PackageReference Include="EPPlus.Core" Version="1.5.4" />
+    <PackageReference Include="Google.Apis.Auth" Version="1.42.0" />
+    <PackageReference Include="Google.Apis.Docs.v1" Version="1.41.1.1754" />
+    <PackageReference Include="Google.Apis.Drive.v3" Version="1.41.1.1734" />
+    <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.AspNetCore.AzureKeyVault.HostingStartup" Version="2.0.4" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.Azure.CognitiveServices.Language.TextAnalytics" Version="4.0.0" />
+    <PackageReference Include="Microsoft.Azure.Services.AppAuthentication" Version="1.3.1" />
+    <PackageReference Include="Microsoft.IO.RecyclableMemoryStream" Version="1.3.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.3" />
+    <PackageReference Include="Node.js" Version="5.3.0" />
+    <PackageReference Include="Sendgrid" Version="9.12.0" />
+    <PackageReference Include="WindowsAzure.Storage" Version="9.3.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Don't publish the SPA source files, but do show them in the project files list -->
+    <Compile Remove="ClientApp\src\actions\**" />
+    <Compile Remove="ClientApp\src\components\AlignPerspectivesController\**" />
+    <Compile Remove="ClientApp\src\components\FeedbackTaskComments\**" />
+    <Compile Remove="ClientApp\src\components\Identity\**" />
+    <Compile Remove="ClientApp\src\components\LearningActionDiscussion\**" />
+    <Compile Remove="ClientApp\src\components\LearningActionMonitoring\**" />
+    <Compile Remove="ClientApp\src\components\ReviewOwnWork\**" />
+    <Compile Remove="ClientApp\src\components\Student\**" />
+    <Compile Remove="ClientApp\src\reducers\**" />
+    <Content Remove="$(SpaRoot)**" />
+    <Content Remove="ClientApp\src\actions\**" />
+    <Content Remove="ClientApp\src\components\AlignPerspectivesController\**" />
+    <Content Remove="ClientApp\src\components\FeedbackTaskComments\**" />
+    <Content Remove="ClientApp\src\components\Identity\**" />
+    <Content Remove="ClientApp\src\components\LearningActionDiscussion\**" />
+    <Content Remove="ClientApp\src\components\LearningActionMonitoring\**" />
+    <Content Remove="ClientApp\src\components\ReviewOwnWork\**" />
+    <Content Remove="ClientApp\src\components\Student\**" />
+    <Content Remove="ClientApp\src\reducers\**" />
+    <EmbeddedResource Remove="ClientApp\src\actions\**" />
+    <EmbeddedResource Remove="ClientApp\src\components\AlignPerspectivesController\**" />
+    <EmbeddedResource Remove="ClientApp\src\components\FeedbackTaskComments\**" />
+    <EmbeddedResource Remove="ClientApp\src\components\Identity\**" />
+    <EmbeddedResource Remove="ClientApp\src\components\LearningActionDiscussion\**" />
+    <EmbeddedResource Remove="ClientApp\src\components\LearningActionMonitoring\**" />
+    <EmbeddedResource Remove="ClientApp\src\components\ReviewOwnWork\**" />
+    <EmbeddedResource Remove="ClientApp\src\components\Student\**" />
+    <EmbeddedResource Remove="ClientApp\src\reducers\**" />
+    <None Remove="$(SpaRoot)**" />
+    <None Remove="ClientApp\src\actions\**" />
+    <None Remove="ClientApp\src\components\AlignPerspectivesController\**" />
+    <None Remove="ClientApp\src\components\FeedbackTaskComments\**" />
+    <None Remove="ClientApp\src\components\Identity\**" />
+    <None Remove="ClientApp\src\components\LearningActionDiscussion\**" />
+    <None Remove="ClientApp\src\components\LearningActionMonitoring\**" />
+    <None Remove="ClientApp\src\components\ReviewOwnWork\**" />
+    <None Remove="ClientApp\src\components\Student\**" />
+    <None Remove="ClientApp\src\reducers\**" />
+    <None Include="$(SpaRoot)**" Exclude="$(SpaRoot)node_modules\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Controllers\ApiLoggingMiddleware.cs" />
+    <Compile Remove="Migrations\20191104150308_v4.cs" />
+    <Compile Remove="Migrations\20191104150308_v4.Designer.cs" />
+    <Compile Remove="Migrations\20191105171204_v1.cs" />
+    <Compile Remove="Migrations\20191105171204_v1.Designer.cs" />
+    <Compile Remove="Migrations\20191121153225_v4.cs" />
+    <Compile Remove="Migrations\20191121153225_v4.Designer.cs" />
+    <Compile Remove="Models\ApiLogItem.cs" />
+    <Compile Remove="Services\ApiLogService.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="ClientApp\src\components\ActiveCourseBar.tsx" />
+    <None Remove="ClientApp\src\components\Admin\AllCourses.tsx" />
+    <None Remove="ClientApp\src\components\Admin\Enrollments.tsx" />
+    <None Remove="ClientApp\src\components\Admin\InstructorList.tsx" />
+    <None Remove="ClientApp\src\components\Assessment\AssessingWork.tsx" />
+    <None Remove="ClientApp\src\components\Assessment\AssessmentDataOperations.tsx" />
+    <None Remove="ClientApp\src\components\Assessment\AssessmentForm.tsx" />
+    <None Remove="ClientApp\src\components\Assessment\RubricCategoryToAssess.tsx" />
+    <None Remove="ClientApp\src\components\Assessment\RubricItemToAssess.tsx" />
+    <None Remove="ClientApp\src\components\Assignment\AddAssignment.tsx" />
+    <None Remove="ClientApp\src\components\Assignment\AssignmentCard.tsx" />
+    <None Remove="ClientApp\src\components\Assignment\AssignmentComprehensive.tsx" />
+    <None Remove="ClientApp\src\components\Assignment\AssignmentDataOperations.tsx" />
+    <None Remove="ClientApp\src\components\Assignment\AssignmentList.tsx" />
+    <None Remove="ClientApp\src\components\Assignment\_shared\ReviewRoundList.tsx" />
+    <None Remove="ClientApp\src\components\Authentication\Login.tsx" />
+    <None Remove="ClientApp\src\components\Authentication\LogoutPopup.tsx" />
+    <None Remove="ClientApp\src\components\Authentication\Register.tsx" />
+    <None Remove="ClientApp\src\components\Authentication\RegisterWithCode.tsx" />
+    <None Remove="ClientApp\src\components\Course\CourseCard.tsx" />
+    <None Remove="ClientApp\src\components\Course\CourseDataOperations.tsx" />
+    <None Remove="ClientApp\src\components\Course\CourseList.tsx" />
+    <None Remove="ClientApp\src\components\Course\Instructor\CourseStudentMenu.tsx" />
+    <None Remove="ClientApp\src\components\Course\Instructor\SearchingStudentsToEnroll.tsx" />
+    <None Remove="ClientApp\src\components\Course\Student\CourseEnrollmentWithCode.tsx" />
+    <None Remove="ClientApp\src\components\Course\Student\CourseStudentMenu.tsx" />
+    <None Remove="ClientApp\src\components\Course\_shared\CreateCourseForm.tsx" />
+    <None Remove="ClientApp\src\components\Course\_shared\EnrollmentCheckbox.tsx" />
+    <None Remove="ClientApp\src\components\Course\_shared\VerifyCourseCode.tsx" />
+    <None Remove="ClientApp\src\components\d3jsCharts\Heatmap.tsx" />
+    <None Remove="ClientApp\src\components\d3jsCharts\LineChart_AssessmentAnalytics.tsx" />
+    <None Remove="ClientApp\src\components\d3jsCharts\ScatterPlot_ActionVsProgress.tsx" />
+    <None Remove="ClientApp\src\components\d3jsCharts\ScatterPlot_FeedbackAnalytics.tsx" />
+    <None Remove="ClientApp\src\components\d3jsCharts\ScatterPlot_ProgressAnalytics.tsx" />
+    <None Remove="ClientApp\src\components\d3jsCharts\ScatterPlot_RubriItemAnalytics.tsx" />
+    <None Remove="ClientApp\src\components\Email\EmailDataOperations.tsx" />
+    <None Remove="ClientApp\src\components\FeedbackCommentsAndReplies\FeedbackDataOperations.tsx" />
+    <None Remove="ClientApp\src\components\FeedbackCommentsAndReplies\LearningActionsPart.tsx" />
+    <None Remove="ClientApp\src\components\FeedbackCommentsAndReplies\ProvidingFeedbackOnWork.tsx" />
+    <None Remove="ClientApp\src\components\FeedbackCommentsAndReplies\QuickNotesPart.tsx" />
+    <None Remove="ClientApp\src\components\FeedbackMap\BarChart.tsx" />
+    <None Remove="ClientApp\src\components\FeedbackMap\FeedbackMapDataOperations.tsx" />
+    <None Remove="ClientApp\src\components\FeedbackMap\FeedbackMapHome.tsx" />
+    <None Remove="ClientApp\src\components\FeedbackMap\RadialProgressChart.tsx" />
+    <None Remove="ClientApp\src\components\FeedbackTaskComment\FeedbackTaskCommentsDataOperation.tsx" />
+    <None Remove="ClientApp\src\components\FeedbackTask\CommentItem.tsx" />
+    <None Remove="ClientApp\src\components\FeedbackTask\CreateFeedbackTaskForm.tsx" />
+    <None Remove="ClientApp\src\components\FeedbackTask\CreateFeedbackTasksWhileAssessing.tsx" />
+    <None Remove="ClientApp\src\components\FeedbackTask\FeedbackTaskDataOperations.tsx" />
+    <None Remove="ClientApp\src\components\FeedbackTask\QuickNoteListItemView1.tsx" />
+    <None Remove="ClientApp\src\components\FeedbackTask\QuickNoteListItemView2.tsx" />
+    <None Remove="ClientApp\src\components\FeedbackTask\ResponsiblePeers.tsx" />
+    <None Remove="ClientApp\src\components\FeedbackTask\UpdateFeedbackTaskForm.js" />
+    <None Remove="ClientApp\src\components\FeedbackTask\UpdateFeedbackTaskForm.js.map" />
+    <None Remove="ClientApp\src\components\FeedbackTask\UpdateFeedbackTaskForm.tsx" />
+    <None Remove="ClientApp\src\components\GoogleDrive\GoogleDocRevisionList.tsx" />
+    <None Remove="ClientApp\src\components\GoogleDrive\GoogleDriveDataOperations.tsx" />
+    <None Remove="ClientApp\src\components\HtmlPages\CaseStudies.tsx" />
+    <None Remove="ClientApp\src\components\HtmlPages\Contact.tsx" />
+    <None Remove="ClientApp\src\components\HtmlPages\CopyrightPolicy.tsx" />
+    <None Remove="ClientApp\src\components\HtmlPages\PrivacyPolicy.tsx" />
+    <None Remove="ClientApp\src\components\HtmlPages\Research.tsx" />
+    <None Remove="ClientApp\src\components\HtmlPages\ResearchTeam.tsx" />
+    <None Remove="ClientApp\src\components\HtmlPages\TryOutSynergy.tsx" />
+    <None Remove="ClientApp\src\components\HtmlPages\UserGuides.tsx" />
+    <None Remove="ClientApp\src\components\InfoBarWorkBeingReviewed.tsx" />
+    <None Remove="ClientApp\src\components\LearningActionProgress\LearningActionProgressDataOperations.tsx" />
+    <None Remove="ClientApp\src\components\LearningAction\CreateOrUpdateLearningActionForum.tsx" />
+    <None Remove="ClientApp\src\components\LearningAction\LearningActionDiscussionHome.tsx" />
+    <None Remove="ClientApp\src\components\LearningAction\LearningActionItemAsTableRow.js" />
+    <None Remove="ClientApp\src\components\LearningAction\LearningActionItemAsTableRow.js.map" />
+    <None Remove="ClientApp\src\components\LearningAction\LearningActionItemAsTableRow.tsx" />
+    <None Remove="ClientApp\src\components\LearningAction\LearningActionListItemView1.tsx" />
+    <None Remove="ClientApp\src\components\LearningAction\LearningActionsHome.js" />
+    <None Remove="ClientApp\src\components\LearningAction\LearningActionsHome.js.map" />
+    <None Remove="ClientApp\src\components\LearningAction\LearningActionsHome.tsx" />
+    <None Remove="ClientApp\src\components\LearningAction\LearningActionsListToMonitor.tsx" />
+    <None Remove="ClientApp\src\components\LearningAction\LearningActionsTable.js" />
+    <None Remove="ClientApp\src\components\LearningAction\LearningActionsTable.js.map" />
+    <None Remove="ClientApp\src\components\LearningAction\LearningActionsTable.tsx" />
+    <None Remove="ClientApp\src\components\LearningAnalytics\LearningActionProgressVsRevisionCount.tsx" />
+    <None Remove="ClientApp\src\components\LearningAnalytics\LearningAnalyticsDataOperations.tsx" />
+    <None Remove="ClientApp\src\components\Monitoring\Instructor\MonitorDialogue.tsx" />
+    <None Remove="ClientApp\src\components\Monitoring\Instructor\MonitorDialogue\DialogueStatistics.tsx" />
+    <None Remove="ClientApp\src\components\Monitoring\Instructor\MonitorDialogue\SearchSubmissionResultsByDialogue.tsx" />
+    <None Remove="ClientApp\src\components\Monitoring\Instructor\MonitorDialogue\SearchSubmissionsByDialogue.tsx" />
+    <None Remove="ClientApp\src\components\Monitoring\Instructor\MonitorParticipation.tsx" />
+    <None Remove="ClientApp\src\components\Monitoring\Instructor\MonitorPlanning - Copy.js" />
+    <None Remove="ClientApp\src\components\Monitoring\Instructor\MonitorPlanning - Copy.js.map" />
+    <None Remove="ClientApp\src\components\Monitoring\Instructor\MonitorPlanning - Copy.tsx" />
+    <None Remove="ClientApp\src\components\Monitoring\Instructor\MonitorPlanning.tsx" />
+    <None Remove="ClientApp\src\components\Monitoring\Instructor\MonitorPlanning\CategoryHighlights.tsx" />
+    <None Remove="ClientApp\src\components\Monitoring\Instructor\MonitorPlanning\CategoryOverview.tsx" />
+    <None Remove="ClientApp\src\components\Monitoring\Instructor\MonitorPlanning\RubricItemAnalytics.tsx" />
+    <None Remove="ClientApp\src\components\Monitoring\Instructor\MonitorPlanning\SearchSubmissionResultsByPlanning.tsx" />
+    <None Remove="ClientApp\src\components\Monitoring\Instructor\MonitorPlanning\SearchSubmissionsByPlanning.tsx" />
+    <None Remove="ClientApp\src\components\Monitoring\Instructor\MonitorProgress.tsx" />
+    <None Remove="ClientApp\src\components\Monitoring\Instructor\MonitorProgress\ProgressStatistics.tsx" />
+    <None Remove="ClientApp\src\components\Monitoring\Instructor\MonitorProgress\SearchSubmissionResultsByProgress.tsx" />
+    <None Remove="ClientApp\src\components\Monitoring\Instructor\MonitorProgress\SearchSubmissionsByProgress.tsx" />
+    <None Remove="ClientApp\src\components\Monitoring\Student\CompareGeneralStats.tsx" />
+    <None Remove="ClientApp\src\components\NavMenu2.tsx" />
+    <None Remove="ClientApp\src\components\Notification\NotificationDataOperations.tsx" />
+    <None Remove="ClientApp\src\components\Notification\NotificationList.tsx" />
+    <None Remove="ClientApp\src\components\ReviewHome\AddTaskStatusForm.tsx" />
+    <None Remove="ClientApp\src\components\ReviewHome\ReviewHome.tsx" />
+    <None Remove="ClientApp\src\components\ReviewHome\ReviewTaskBox.tsx" />
+    <None Remove="ClientApp\src\components\ReviewHome\TaskStatusUpdates.tsx" />
+    <None Remove="ClientApp\src\components\ReviewHome\TaskStatusUpdatesToolTip.tsx" />
+    <None Remove="ClientApp\src\components\ReviewRound\Instructor\AddOrEditReviewRound.tsx" />
+    <None Remove="ClientApp\src\components\ReviewRound\Instructor\ReviewRoundDataOperations.tsx" />
+    <None Remove="ClientApp\src\components\ReviewRound\Instructor\ReviewTaskList.js" />
+    <None Remove="ClientApp\src\components\ReviewRound\Instructor\ReviewTaskList.js.map" />
+    <None Remove="ClientApp\src\components\ReviewRound\Instructor\ReviewTaskList.tsx" />
+    <None Remove="ClientApp\src\components\ReviewRound\Instructor\UpdateReviewTaskForm.tsx" />
+    <None Remove="ClientApp\src\components\ReviewRound\Student\ReviewOwnWorkHome.tsx" />
+    <None Remove="ClientApp\src\components\ReviewRound\_shared\OwnSubmissionCard.tsx" />
+    <None Remove="ClientApp\src\components\ReviewRound\_shared\PeerSubmissionsCard.tsx" />
+    <None Remove="ClientApp\src\components\ReviewRound\_shared\ReviewRoundBasicInfo.tsx" />
+    <None Remove="ClientApp\src\components\ReviewRound\_shared\ReviewTaskList.tsx" />
+    <None Remove="ClientApp\src\components\ReviewRound\_shared\StudentPhotoNameCard.tsx" />
+    <None Remove="ClientApp\src\components\ReviewTaskStatus\ReviewTaskStatusDataOperations.tsx" />
+    <None Remove="ClientApp\src\components\ReviewTask\Instructor\ManageReviewTasks.tsx" />
+    <None Remove="ClientApp\src\components\ReviewTask\ReviewTaskDataOperations.tsx" />
+    <None Remove="ClientApp\src\components\ReviseTheWork\LearningActionListWithProgressUpdate.js" />
+    <None Remove="ClientApp\src\components\ReviseTheWork\LearningActionListWithProgressUpdate.js.map" />
+    <None Remove="ClientApp\src\components\ReviseTheWork\LearningActionListWithProgressUpdate.tsx" />
+    <None Remove="ClientApp\src\components\ReviseTheWork\LearningActionWithUpdateAsTableRow.tsx" />
+    <None Remove="ClientApp\src\components\ReviseTheWork\ReviseTheWork.tsx" />
+    <None Remove="ClientApp\src\components\Rubric\AddRubricItemForm.tsx" />
+    <None Remove="ClientApp\src\components\Rubric\EditRubricForm.tsx" />
+    <None Remove="ClientApp\src\components\Rubric\Instructor\AddOrEditRubricItemCategoryForm.tsx" />
+    <None Remove="ClientApp\src\components\Rubric\Instructor\RubricItemCategoryCard.tsx" />
+    <None Remove="ClientApp\src\components\Rubric\RubricCard.tsx" />
+    <None Remove="ClientApp\src\components\Rubric\RubricDataOperations.tsx" />
+    <None Remove="ClientApp\src\components\Rubric\RubricItem.tsx" />
+    <None Remove="ClientApp\src\components\Rubric\RubricItemDataOperations.tsx" />
+    <None Remove="ClientApp\src\components\Rubric\RubricItemList.tsx" />
+    <None Remove="ClientApp\src\components\Rubric\RubricList.tsx" />
+    <None Remove="ClientApp\src\components\Rubric\Rubrics_.js" />
+    <None Remove="ClientApp\src\components\Rubric\_shared\AssessmentScoresAsOneLineTextForRubricItem.tsx" />
+    <None Remove="ClientApp\src\components\Rubric\_shared\RubricItemCategoryDataOperations.tsx" />
+    <None Remove="ClientApp\src\components\StudentGroup\Instructor\CreateStudentGroupsWithReviewerAssignments.tsx" />
+    <None Remove="ClientApp\src\components\StudentGroup\Instructor\ManageGroups.tsx" />
+    <None Remove="ClientApp\src\components\StudentGroup\Instructor\ReviewedGroupTable.tsx" />
+    <None Remove="ClientApp\src\components\StudentGroup\Instructor\SearchingGroups.tsx" />
+    <None Remove="ClientApp\src\components\StudentGroup\Instructor\ShowUnAssignedStudents.tsx" />
+    <None Remove="ClientApp\src\components\StudentGroup\_shared\StudentGroupDataOperations.tsx" />
+    <None Remove="ClientApp\src\components\Submission\Student\UploadSubmission.tsx" />
+    <None Remove="ClientApp\src\components\Submission\SubmissionCard.tsx" />
+    <None Remove="ClientApp\src\components\Submission\SubmissionDataOperations.tsx" />
+    <None Remove="ClientApp\src\components\Submission\SubmissionList.tsx" />
+    <None Remove="ClientApp\src\components\TermsOfService.tsx" />
+    <None Remove="ClientApp\src\components\Tooltip.tsx" />
+    <None Remove="ClientApp\src\components\User\LinkWithGoogle.tsx" />
+    <None Remove="ClientApp\src\components\User\UpdateProfile.tsx" />
+    <None Remove="ClientApp\src\components\_sharedControls\Button_SigninAsUser.tsx" />
+    <None Remove="ClientApp\src\components\_sharedControls\CommentControl\CommentGeneralDataOperations.tsx" />
+    <None Remove="ClientApp\src\components\_sharedControls\CommentControl\CommentItem.tsx" />
+    <None Remove="ClientApp\src\components\_sharedControls\CommentControl\PostCommentForm.tsx" />
+    <None Remove="ClientApp\src\components\_sharedControls\ImportStudentsFromExcel.tsx" />
+    <None Remove="ClientApp\src\components\_sharedControls\LoadingSpinner.tsx" />
+    <None Remove="ClientApp\src\components\_sharedControls\PageHeader.tsx" />
+    <None Remove="ClientApp\src\components\_sharedControls\QuickSearchStudentsToAddGroups.tsx" />
+    <None Remove="ClientApp\src\components\_sharedControls\RubricItemBoxWithPeerScores.tsx" />
+    <None Remove="ClientApp\src\components\_sharedControls\RubricItemsListBox.tsx" />
+    <None Remove="ClientApp\src\components\_sharedControls\TroubleViewingGoogleDoc.tsx" />
+    <None Remove="ClientApp\src\Home.tsx" />
+    <None Remove="ClientApp\src\myIndex.d.ts" />
+    <None Remove="ClientApp\src\react-app-env.d.ts" />
+    <None Remove="ClientApp\src\_actions\assessmentActions.tsx" />
+    <None Remove="ClientApp\src\_actions\assignmentActions.tsx" />
+    <None Remove="ClientApp\src\_actions\commentGeneralActions.tsx" />
+    <None Remove="ClientApp\src\_actions\courseActions.tsx" />
+    <None Remove="ClientApp\src\_actions\feedbackCommentActions.tsx" />
+    <None Remove="ClientApp\src\_actions\feedbackMapActions.tsx" />
+    <None Remove="ClientApp\src\_actions\feedbackReplyActions.tsx" />
+    <None Remove="ClientApp\src\_actions\feedbackTaskActions.tsx" />
+    <None Remove="ClientApp\src\_actions\feedbackTaskCommentActions.tsx" />
+    <None Remove="ClientApp\src\_actions\googleDocRevisionActions.tsx" />
+    <None Remove="ClientApp\src\_actions\learningActionActions.tsx" />
+    <None Remove="ClientApp\src\_actions\learningActionCommentActions.tsx" />
+    <None Remove="ClientApp\src\_actions\learningActionProgressActions.tsx" />
+    <None Remove="ClientApp\src\_actions\learningAnalyticsActions.tsx" />
+    <None Remove="ClientApp\src\_actions\notificationActions.tsx" />
+    <None Remove="ClientApp\src\_actions\peerGroupActions.tsx" />
+    <None Remove="ClientApp\src\_actions\peersActions.tsx" />
+    <None Remove="ClientApp\src\_actions\reviewRoundActions.tsx" />
+    <None Remove="ClientApp\src\_actions\reviewTaskActions.tsx" />
+    <None Remove="ClientApp\src\_actions\reviewTaskStatusActions.tsx" />
+    <None Remove="ClientApp\src\_actions\rubricActions.tsx" />
+    <None Remove="ClientApp\src\_actions\rubricItemActions.tsx" />
+    <None Remove="ClientApp\src\_actions\rubricItemCategoryActions.tsx" />
+    <None Remove="ClientApp\src\_actions\rubricItemScoreCommentActions.tsx" />
+    <None Remove="ClientApp\src\_actions\studentGroupActions.tsx" />
+    <None Remove="ClientApp\src\_actions\submissionActions.tsx" />
+    <None Remove="ClientApp\src\_actions\userActions.tsx" />
+    <None Remove="ClientApp\src\_reducers\assessmentReducer.tsx" />
+    <None Remove="ClientApp\src\_reducers\assignmentReducer.tsx" />
+    <None Remove="ClientApp\src\_reducers\commentGeneralReducer.tsx" />
+    <None Remove="ClientApp\src\_reducers\courseReducer.tsx" />
+    <None Remove="ClientApp\src\_reducers\feedbackCommentReducer.tsx" />
+    <None Remove="ClientApp\src\_reducers\feedbackMapReducer.tsx" />
+    <None Remove="ClientApp\src\_reducers\feedbackReplyReducer.tsx" />
+    <None Remove="ClientApp\src\_reducers\feedbackTaskCommentReducer.tsx" />
+    <None Remove="ClientApp\src\_reducers\feedbackTaskReducer.tsx" />
+    <None Remove="ClientApp\src\_reducers\googleDocRevisionReducer.tsx" />
+    <None Remove="ClientApp\src\_reducers\learningActionCommentReducer.tsx" />
+    <None Remove="ClientApp\src\_reducers\learningActionProgressReducer.tsx" />
+    <None Remove="ClientApp\src\_reducers\learningActionReducer.tsx" />
+    <None Remove="ClientApp\src\_reducers\learningAnalyticsReducer.tsx" />
+    <None Remove="ClientApp\src\_reducers\notificationReducer.tsx" />
+    <None Remove="ClientApp\src\_reducers\peerGroupReducer.tsx" />
+    <None Remove="ClientApp\src\_reducers\peersReducer.tsx" />
+    <None Remove="ClientApp\src\_reducers\reviewRoundReducer.tsx" />
+    <None Remove="ClientApp\src\_reducers\reviewTaskReducer.tsx" />
+    <None Remove="ClientApp\src\_reducers\reviewTaskStatusReducer.tsx" />
+    <None Remove="ClientApp\src\_reducers\rootReducer.tsx" />
+    <None Remove="ClientApp\src\_reducers\rubricItemScoreCommentReducer.tsx" />
+    <None Remove="ClientApp\src\_reducers\studentGroupReducer.tsx" />
+    <None Remove="ClientApp\src\_reducers\submissionReducer.tsx" />
+    <None Remove="ClientApp\src\_reducers\userReducer.tsx" />
+    <None Remove="ClientApp\src\_services\active.assignment.service.js" />
+    <None Remove="ClientApp\src\_services\active.assignment.service.js.map" />
+    <None Remove="ClientApp\src\_services\active.assignment.service.tsx" />
+    <None Remove="ClientApp\src\_services\user.service.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <TypeScriptCompile Include="ClientApp\src\components\Admin\AllCourses.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\components\Admin\InstructorList.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\components\Assessment\AssessmentDataOperations.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\components\Assessment\AssessmentForm.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\components\Assessment\RubricCategoryToAssess.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\components\Assessment\RubricItemToAssess.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\components\Authentication\RegisterWithCode.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\components\Course\Instructor\SearchingStudentsToEnroll.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\components\Course\Student\CourseEnrollmentWithCode.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\components\Course\_shared\CreateCourseForm.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\components\Course\_shared\EnrollmentCheckbox.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\components\Course\_shared\Enrollments.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\components\Assessment\AssessingWork.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\components\Assignment\Instructor\AddOrEditAssignment.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\components\Assignment\_shared\AssignmentCard.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\components\Assignment\_shared\AssignmentDataOperations.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\components\Assignment\_shared\AssignmentList.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\components\Assignment\_shared\ReviewRoundList.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\components\Authentication\Login.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\components\Authentication\LogoutPopup.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\components\Authentication\Register.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\components\Course\Student\CourseStudentMenu.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\components\Course\_shared\CourseCard.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\components\Course\_shared\CourseDataOperations.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\components\Course\_shared\CourseList.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\components\Course\_shared\VerifyCourseCode.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\components\d3jsCharts\Heatmap.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\components\d3jsCharts\LineChart_AssessmentAnalytics.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\components\d3jsCharts\ScatterPlot_ActionVsProgress.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\components\d3jsCharts\ScatterPlot_FeedbackAnalytics.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\components\d3jsCharts\ScatterPlot_ProgressAnalytics.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\components\d3jsCharts\ScatterPlot_RubriItemAnalytics.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\components\Email\EmailDataOperations.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\components\FeedbackCommentsAndReplies\FeedbackDataOperations.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\components\FeedbackCommentsAndReplies\LearningActionsPart.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\components\FeedbackCommentsAndReplies\ProvidingFeedbackOnWork.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\components\FeedbackCommentsAndReplies\QuickNotesPart.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\components\FeedbackMap\BarChart.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\components\FeedbackMap\FeedbackMapDataOperations.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\components\FeedbackMap\FeedbackMapHome.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\components\d3jsCharts\RadialProgressChart.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\components\FeedbackTaskComment\FeedbackTaskCommentsDataOperation.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\components\FeedbackTask\CreateFeedbackTasksWhileAssessing.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\components\FeedbackTask\QuickNoteListItemView1.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\components\FeedbackTask\QuickNoteListItemView2.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\components\GoogleDrive\GoogleDocRevisionList.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\components\GoogleDrive\GoogleDriveDataOperations.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\components\HtmlPages\CaseStudies.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\components\HtmlPages\Contact.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\components\HtmlPages\Research.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\components\HtmlPages\ResearchTeam.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\components\HtmlPages\TryOutSynergy.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\components\HtmlPages\CopyrightPolicy.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\components\HtmlPages\PrivacyPolicy.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\components\HtmlPages\UserGuides.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\components\LearningActionProgress\LearningActionProgressDataOperations.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\components\LearningAction\CreateOrUpdateLearningActionForum.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\components\LearningAction\LearningActionListItemView1.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\components\Monitoring\Instructor\MonitorDialogue\SearchSubmissionResultsByDialogue.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\components\Monitoring\Instructor\MonitorDialogue\SearchSubmissionsByDialogue.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\components\Monitoring\Instructor\MonitorDialogue\DialogueStatistics.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\components\Monitoring\Instructor\MonitorParticipation.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\components\Monitoring\Instructor\MonitorPlanning\CategoryHighlights.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\components\Monitoring\Instructor\MonitorPlanning\CategoryOverview.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\components\Monitoring\Instructor\MonitorPlanning\RubricItemAnalytics.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\components\Monitoring\Instructor\MonitorPlanning\SearchSubmissionResultsByPlanning.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\components\Monitoring\Instructor\MonitorPlanning\SearchSubmissionsByPlanning.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\components\Monitoring\Instructor\MonitorProgress\ProgressStatistics.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\components\Monitoring\Instructor\MonitorProgress\SearchSubmissionResultsByProgress.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\components\Monitoring\Instructor\MonitorProgress\SearchSubmissionsByProgress.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\components\LearningAnalytics\LearningAnalyticsDataOperations.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\components\Monitoring\Instructor\MonitorDialogue\MonitorDialogue.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\components\Monitoring\Instructor\MonitorPlanning\MonitorPlanning.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\components\Monitoring\Instructor\MonitorProgress\MonitorProgress.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\components\Monitoring\Student\CompareGeneralStats.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\components\Notification\NotificationDataOperations.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\components\Notification\NotificationList.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\components\ReviewRound\Instructor\AddOrEditReviewRound.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\components\ReviewTask\Instructor\UpdateReviewTaskForm.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\components\ReviewTaskStatus\AddTaskStatusForm.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\components\ReviewTask\Instructor\ManageReviewTasks.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\components\ReviewTask\Student\ReviewTaskTimeline.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\components\ReviewTaskStatus\TaskStatusUpdates.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\components\ReviewTaskStatus\TaskStatusUpdatesToolTip.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\components\ReviewTaskStatus\ReviewTaskStatusDataOperations.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\components\ReviewTask\_shared\ReviewTaskDataOperations.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\components\LearningAction\LearningActionListItemView2.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\components\Rubric\Instructor\AddOrEditRubricItemCategoryForm.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\components\Rubric\Instructor\RubricItemCategoryCard.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\components\Rubric\_shared\AssessmentScoresAsOneLineTextForRubricItem.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\components\Rubric\_shared\RubricItemCategoryDataOperations.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\components\StudentGroup\Instructor\CreateStudentGroupsWithReviewerAssignments.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\components\StudentGroup\Instructor\ManageGroups.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\components\StudentGroup\Instructor\ReviewedGroupTable.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\components\StudentGroup\Instructor\SearchingGroups.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\components\StudentGroup\Instructor\ShowUnAssignedStudents.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\components\StudentGroup\_shared\StudentGroupDataOperations.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\components\HtmlPages\TermsOfService.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\components\User\LinkWithGoogle.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\components\User\UpdateProfile.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\components\_sharedControls\Button_SigninAsUser.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\components\_sharedControls\CommentControl\CommentGeneralDataOperations.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\components\_sharedControls\CommentControl\CommentItem.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\components\_sharedControls\CommentControl\Comments.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\components\FeedbackTask\CreateFeedbackTaskForm.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\components\FeedbackTask\FeedbackTaskDataOperations.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\components\FeedbackTask\ResponsiblePeers.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\components\_sharedControls\CommentControl\PostCommentForm.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\components\_sharedControls\ImportStudentsFromExcel.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\components\_sharedControls\InfoBarWorkBeingReviewed.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\components\NavMenu2.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\components\ReviewHome\ReviewHome.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\components\ReviewRound\_shared\PeerSubmissionsCard.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\components\ReviewRound\_shared\ReviewRoundBasicInfo.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\components\ReviewRound\_shared\ReviewRoundDataOperations.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\components\ReviewRound\Student\ReviewRoundOverall.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\components\ReviewRound\_shared\ReviewTaskList.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\components\ReviewRound\_shared\OwnSubmissionCard.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\components\_sharedControls\LoadingSpinner.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\components\_sharedControls\PageHeader.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\components\_sharedControls\QuickSearchStudentsToAddGroups.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\components\_sharedControls\RubricItemBoxWithPeerScores.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\components\_sharedControls\RubricItemsListBox.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\components\_sharedControls\StudentPhotoNameCard.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\components\ReviseTheWork\ReviseTheWork.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\components\Rubric\Instructor\AddRubricItemForm.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\components\Rubric\Instructor\AddOrEditRubricForm.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\components\Rubric\Instructor\RubricCard.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\components\Rubric\_shared\RubricDataOperations.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\components\Rubric\Instructor\RubricItem.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\components\Rubric\_shared\RubricItemDataOperations.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\components\Rubric\Instructor\RubricItemList.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\components\Rubric\Instructor\RubricList.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\components\Home.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\components\Submission\Instructor\SubmissionCard.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\components\Submission\_shared\SubmissionDataOperations.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\components\Submission\Student\UploadSubmission.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\components\_sharedControls\Tooltip.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\components\_sharedControls\TroubleViewingGoogleDoc.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\myIndex.d.ts" />
+    <TypeScriptCompile Include="ClientApp\src\_actions\assessmentActions.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\_actions\assignmentActions.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\_actions\commentGeneralActions.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\_actions\courseActions.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\_actions\feedbackCommentActions.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\_actions\feedbackReplyActions.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\_actions\feedbackTaskActions.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\_actions\feedbackMapActions.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\_actions\feedbackTaskCommentActions.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\_actions\googleDocRevisionActions.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\_actions\learningActionProgressActions.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\_actions\learningActionCommentActions.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\_actions\learningActionActions.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\_actions\learningAnalyticsActions.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\_actions\notificationActions.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\_actions\peerGroupActions.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\_actions\peersActions.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\_actions\reviewTaskActions.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\_actions\reviewTaskStatusActions.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\_actions\rubricActions.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\_actions\rubricItemActions.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\_actions\reviewRoundActions.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\_actions\rubricItemCategoryActions.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\_actions\rubricItemScoreCommentActions.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\_actions\userActions.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\_actions\studentGroupActions.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\_actions\submissionActions.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\_reducers\assessmentReducer.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\_reducers\assignmentReducer.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\_reducers\commentGeneralReducer.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\_reducers\courseReducer.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\_reducers\feedbackCommentReducer.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\_reducers\feedbackMapReducer.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\_reducers\feedbackReplyReducer.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\_reducers\feedbackTaskCommentReducer.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\_reducers\feedbackTaskReducer.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\_reducers\googleDocRevisionReducer.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\_reducers\learningActionCommentReducer.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\_reducers\learningActionProgressReducer.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\_reducers\learningActionReducer.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\_reducers\learningAnalyticsReducer.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\_reducers\notificationReducer.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\_reducers\peersReducer.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\_reducers\peerGroupReducer.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\_reducers\reviewRoundReducer.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\_reducers\reviewTaskReducer.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\_reducers\reviewTaskStatusReducer.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\_reducers\rootReducer.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\_reducers\rubricItemScoreCommentReducer.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\_reducers\studentGroupReducer.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\_reducers\userReducer.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\_reducers\submissionReducer.tsx" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="ClientApp\src\components\Assignment\Student\" />
+    <Folder Include="ClientApp\src\components\GoogleDrive\Instructor\" />
+    <Folder Include="ClientApp\src\components\Monitoring\_shared\" />
+    <Folder Include="ClientApp\src\components\Rubric\Student\" />
+    <Folder Include="Connected Services\" />
+    <Folder Include="GoogleCredentials\" />
+    <Folder Include="CSVfiles\" />
+    <Folder Include="token.json\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="Services\credentials.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services" />
+  </ItemGroup>
+
+  <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">
+    <!-- Ensure Node.js is installed -->
+    <Exec Command="node --version" ContinueOnError="true">
+      <Output TaskParameter="ExitCode" PropertyName="ErrorCode" />
+    </Exec>
+    <Error Condition="'$(ErrorCode)' != '0'" Text="Node.js is required to build and run this project. To continue, please install Node.js from https://nodejs.org/, and then restart your command prompt or IDE." />
+    <Message Importance="high" Text="Restoring dependencies using 'npm'. This may take several minutes..." />
+    <Exec WorkingDirectory="$(SpaRoot)" Command="npm install" />
+  </Target>
+
+  <Target Name="PublishRunWebpack" AfterTargets="ComputeFilesToPublish">
+    <!-- As part of publishing, ensure the JS resources are freshly built in production mode -->
+    <Exec WorkingDirectory="$(SpaRoot)" Command="npm install" />
+    <Exec WorkingDirectory="$(SpaRoot)" Command="npm run build" />
+
+    <!-- Include the newly-built files in the publish output -->
+    <ItemGroup>
+      <DistFiles Include="$(SpaRoot)build\**" />
+      <ResolvedFileToPublish Include="@(DistFiles->'%(FullPath)')" Exclude="@(ResolvedFileToPublish)">
+        <RelativePath>%(DistFiles.Identity)</RelativePath>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </ResolvedFileToPublish>
+    </ItemGroup>
+  </Target>
+
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
+    <TypeScriptTarget>ES5</TypeScriptTarget>
+    <TypeScriptJSXEmit>React</TypeScriptJSXEmit>
+    <TypeScriptModuleKind>CommonJS</TypeScriptModuleKind>
+    <TypeScriptCompileOnSaveEnabled>True</TypeScriptCompileOnSaveEnabled>
+    <TypeScriptNoImplicitAny>False</TypeScriptNoImplicitAny>
+    <TypeScriptRemoveComments>False</TypeScriptRemoveComments>
+    <TypeScriptOutFile />
+    <TypeScriptOutDir />
+    <TypeScriptGeneratesDeclarations>False</TypeScriptGeneratesDeclarations>
+    <TypeScriptNoEmitOnError>True</TypeScriptNoEmitOnError>
+    <TypeScriptSourceMap>True</TypeScriptSourceMap>
+    <TypeScriptMapRoot />
+    <TypeScriptSourceRoot />
+  </PropertyGroup>
+
+</Project>

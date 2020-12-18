@@ -1,0 +1,53 @@
+REVIEW ROUND
+StartDate = DateTime.Now,
+EndDate = DateTime.Now.AddDays(15),
+FirstSubmissionDueDate = DateTime.Now.AddDays(1),
+
+
+T1: Assess the peer's work based on the rubric
+StartDate = DateTime.Now.AddDays(1),
+DueDate = DateTime.Now.AddDays(2),
+
+T2: Assess your own work based on the rubric
+StartDate = DateTime.Now.AddDays(1),
+DueDate = DateTime.Now.AddDays(2),
+
+T3: Discuss the assessment results and align your perspectives
+StartDate = DateTime.Now.AddDays(2),
+DueDate = DateTime.Now.AddDays(4),
+
+T4: Determine and plan the feedback
+StartDate = DateTime.Now.AddDays(4),
+DueDate = DateTime.Now.AddDays(6),
+
+T5: Check the feedback tasks created by the peers
+StartDate = DateTime.Now.AddDays(6),
+DueDate = DateTime.Now.AddDays(7),
+
+T6: Provide the planned feedback
+StartDate = DateTime.Now.AddDays(7),
+DueDate = DateTime.Now.AddDays(10),
+
+T7: Check the feedback received
+StartDate = DateTime.Now.AddDays(7),
+DueDate = DateTime.Now.AddDays(10),
+
+T8: Map the feedback provided to peer's work with the corresponding feedback task
+StartDate = DateTime.Now.AddDays(8),
+DueDate = DateTime.Now.AddDays(10),
+
+T9: Create the learning actions
+StartDate = DateTime.Now.AddDays(10),
+DueDate = DateTime.Now.AddDays(11),
+
+T10: Check the learning actions
+StartDate = DateTime.Now.AddDays(10),
+DueDate = DateTime.Now.AddDays(11),
+
+T11: Revise the work
+StartDate = DateTime.Now.AddDays(11),
+DueDate = DateTime.Now.AddDays(15),
+
+T12: Monitor and guide the peer
+StartDate = DateTime.Now.AddDays(11),
+DueDate = DateTime.Now.AddDays(15),
